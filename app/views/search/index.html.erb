@@ -5,11 +5,10 @@
         <label class='search-label label'>
           <span>CodeSearcherFinderBox</span>
         </label>
-        <input class='search-input home-input' placeholder='What Kind Of Code Are You Looking For' type='/search' value=''>
-      </form>
+        <%= text_field :answer %>
     </div>
     <div class='column is-2 is-paddingless'>
-      <a class='button is-primary is-large search-button'>Search</a>
+      <%= submit @answer, :url => { :action => "websearch" }, class: 'button is-primary is-large search-button' %>
     </div>
   </div>
 </div>

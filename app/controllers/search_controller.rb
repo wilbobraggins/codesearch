@@ -1,7 +1,8 @@
 class SearchController < ApplicationController
-
+ attr_accessor :answer
+ helper_method :searches
+  
   def index
-    @find = websearch(search)
   end
 
   def websearch(search)
@@ -11,7 +12,13 @@ class SearchController < ApplicationController
     else
       url + '/search?q=' + "#{search}".gsub!(/\s/,'+')
     end
-    redirect_to(websearch(search)) 
   end
+
+  def searches
+    @answer = gets
+    websearch(answer)
+  end
+
+
 
 end
