@@ -4,11 +4,13 @@
       <form class='search-block'>
         <label class='search-label label'>
           <span>CodeSearcherFinderBox</span>
-        </label>
-        <%= text_field :answer %>
+        </label> 
+        <%= text_field_tag @answer %>
+        <input class='search-input home-input' placeholder='looking for a problem'>
+      </form>
     </div>
     <div class='column is-2 is-paddingless'>
-      <%= submit @answer, :url => { :action => "websearch" }, class: 'button is-primary is-large search-button' %>
+      <%= button_tag @answer, :url => { :action => "websearch" }, class: 'button is-primary is-large search-button' %>
     </div>
   </div>
 </div>
