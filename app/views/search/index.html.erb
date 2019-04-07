@@ -5,13 +5,14 @@
         <label class='search-label label'>
           <span>CodeSearcherFinderBox</span>
         </label> 
+        <%= form_tag('search/create') do %>
         <%= text_field_tag @answer %>
-        <input class='search-input home-input' placeholder='looking for a problem'>
       </form>
     </div>
     <div class='column is-2 is-paddingless'>
-      <%= button_tag @answer, :url => { :action => "websearch" }, class: 'button is-primary is-large search-button' %>
+      <%= button_tag "Search", class: 'button is-primary is-large search-button' %>
+      <% end %>
     </div>
   </div>
 </div>
-
+  
