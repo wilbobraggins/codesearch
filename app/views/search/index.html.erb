@@ -1,20 +1,25 @@
+<% if alert.present? %>  
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %> 
 <div class='container landing-container'>
   <div class='columns is-mobile box search-box'>
     <div class='column is-paddingless'>
       <form class='search-block'>
-        <label class='search-label label'>
-          <span>CodeSearcherFinderBox</span>
-        </label> 
-        <%= form_tag('search/index', :method => "get") do %>
-        <%= search_field_tag :search, params[:search], placeholder: "search", class: 'search-block'  %>
+        <%= form_tag create_path, class: 'search-label label' do %>
+        <%= text_field_tag :q ,nil, placeholder: "search", class: 'search-block' %>
       
     </div>
     <div class='column is-2 is-paddingless'>
 
-      <%= button_tag "Search", class: 'button is-primary is-large search-button' %>
-      <% end %>
+      <%= submit_tag "Search", class: 'button is-primary is-large search-button' %>
       </form>
+      <% end %>
     </div>
   </div>
 </div>
+<br/>
+<br/>
+
+<span><% @finder %></span>
+
   
