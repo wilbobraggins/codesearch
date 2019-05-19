@@ -1,6 +1,7 @@
 class Search < ApplicationRecord
+  validates :question, presence: true
   
-  def self.weburl(input)
-    url = "https://stackoverflow.com/questions/tagged/" + "#{input}".gsub!(/\s/,'+')
+  def self.search(searches)
+    "https://stackoverflow.com/questions/tagged/" + "#{searches}".gsub!(/\s/,'+')
   end
 end

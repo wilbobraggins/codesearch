@@ -4,14 +4,12 @@
 <div class='container landing-container'>
   <div class='columns is-mobile box search-box'>
     <div class='column is-paddingless'>
-      <form class='search-block'>
-        <%= form_for @searches, url: {controller: "searches", action: "create"} do |f| %>
+        <%= form_for @search, url: {controller: "searches", action: "create"} do |f| %>
         <%= f.text_field :question, placeholder: "search", class: 'search-block' %>
       
     </div>
     <div class='column is-2 is-paddingless'>
-      <%= f.submit "Search", class: 'button is-primary is-large search-button' %>
-      </form>
+      <%= f.submit 'Search', name: nil, class: 'button is-primary is-large search-button' %>
       <% end %>
     </div>
   </div>
