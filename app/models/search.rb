@@ -2,7 +2,11 @@ class Search < ApplicationRecord
   validates :question, presence: true
   
   def self.websearch(input)
-    "https://stackoverflow.com/questions/tagged/" + "#{input}".gsub!(/\s/,'+')
+    if input.scan(/\w+/).size <= 1
+      "https://stackoverflow.com/search?q=" + '/questions/tagged/' + "#{input}"
+    else
+      "https://stackoverflow.com/search?q=" + "#{input}".gsub!(/\s/,'+')
+    end
   end
 
   def self.pull_resaults(url)

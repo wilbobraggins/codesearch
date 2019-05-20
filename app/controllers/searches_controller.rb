@@ -2,11 +2,11 @@ class SearchesController < ApplicationController
  attr_accessor :question
   
   def index
-    @search = Search.new
+    @search = Search.new(params[:question])
   end
 
   def create
-    @search = Search.new(searches_params)
+    @search = Search.create(searches_params)
       if @search.save
         redirect_to search_path(@search[:id])
       else
