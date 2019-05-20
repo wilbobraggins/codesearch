@@ -16,7 +16,9 @@ class SearchesController < ApplicationController
       
 
   def show
-    @search = Search.last
+    @search = Search.find_by_id(params[:id])
+    @link = Search.websearch(@search.question)
+    @show = Search.pull_resaults(@link)
   end
 
   private
