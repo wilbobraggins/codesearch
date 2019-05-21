@@ -21,7 +21,7 @@ class SearchesController < ApplicationController
     @search = Search.find_by_id(params[:id])
     @url = Search.websearch(@search.question)
     @show = Search.pull_resaults(@url)
-    @links
+    @links = Search.websearch(@search.question)
   end
 
   private

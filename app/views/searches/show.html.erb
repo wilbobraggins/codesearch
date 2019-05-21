@@ -22,6 +22,7 @@
 </section>
 <section class="hero is-info">
   <div class="hero-body">
+    <%= link_to "https://stackoverflow.com/search?q=" + "#{@search.question}".gsub!(/\s/,'+') do %>
     <div class="container">
       <h1 class="title">
         <%= @show.search('a.question-hyperlink').xpath('text()').last %>
@@ -30,5 +31,6 @@
         <%= @show.search('div.excerpt').xpath('text()').last %>
       </h2>
     </div>
+    <% end %>
   </div>
 </section>
