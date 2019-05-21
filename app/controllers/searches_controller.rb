@@ -7,6 +7,8 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.create(searches_params)
+    @links = Search.websearch(@search.question)
+    Search.create(link: "#{@links}")
       if @search.save
         redirect_to search_path(@search[:id])
       else
@@ -17,11 +19,13 @@ class SearchesController < ApplicationController
 
   def show
     @search = Search.find_by_id(params[:id])
-    @link = Search.websearch(@search.question)
-    @show = Search.pull_resaults(@link)
+    @url = Search.websearch(@search.question)
+    @show = Search.pull_resaults(@url)
+    @links
   end
 
   private
+
 
   def searches_params
     params.require(:search).permit(:question)

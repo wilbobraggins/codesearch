@@ -1,6 +1,6 @@
 class Search < ApplicationRecord
-  validates :question, presence: true
   
+
   def self.websearch(input)
     if input.scan(/\w+/).size <= 1
       "https://stackoverflow.com/search?q=" + '/questions/tagged/' + "#{input}"
